@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="uft-8"/> 
+    <title>Ejemplo formulario</title>
+</head>
+<body>
+	<form action="malito:jhon.mercado@hotmail.com" method="post" enctype="text/plain">
+		<p>
+			<label for="nombre">
+				Nombre :
+			</label>
+		</br>
+		<input type="text" id="nombre" name="nombre" size="20">
+		</p>
+		<p>
+    		<label for="comentario">
+        		¿Algún comentario?
+    		</label>
+
+    		<br />
+    		<textarea name="comentario" id="comentario" cols="30" rows="5">
+        			Bla bla bla
+    	  	</textarea>
+            <input type="submit" value="enviar">
+        </br>
+        <p>
+    Has jugado a ... 
+    <br />
+
+    <input type="checkbox" name="monkey1" id="monkey1" value="si" />
+    <label for="monkey1">
+
+        Monkey Island I
+    </label>
+    <p>
+
+    
+    Has jugado a ...
+    <br />
+
+    <input type="checkbox" name="monkey1" id="monkey1" value="si" checked="checked" />
+
+    <label for="monkey1">
+        Monkey Island I
+    </label>
+    
+    <input type="checkbox" name="xwing" id="xwing" value="si" />
+
+    <label for="xwing">
+        X- Wing Alliance
+    </label>
+    
+</p>
+<p>
+
+    Peli preferida :
+    <br />
+
+    
+    <input type="radio" name="peli" id="sw_hope" value="hope" checked="checked" />
+
+    <label for="sw_hope">
+        A New Hope
+    </label>
+    
+    <input type="radio" name="peli" id="sw_empire" value="empire" />
+
+    <label for="sw_empire">
+        The Empire Strikes Back
+    </label>
+    
+    <input type="radio" name="peli" id="sw_jedi" value="jedi" />
+
+    <label for="sw_jedi">
+        The Return of the Jedi
+    </label>
+    
+</p>
+<p>
+    <label for="peli">
+        Película preferida :
+    </label>
+    <br />
+    <select name="peli" id="peli">
+
+        <option value="hope">
+            A New Hope
+        </option>
+        <option value="empire">
+            The Empire Strikes Back
+        </option>
+        <option value="jedi" selected="selected">
+
+            The Return of the Jedi
+        </option>
+    </select>
+</p>
+</p>
+        <input type="password" name="pass" id="pass" />
+        </br>
+        <input type="reset" value="Borrar" />
+		</p>
+		
+	</form>
+
+</body>
+</html>
