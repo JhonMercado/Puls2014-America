@@ -1,28 +1,100 @@
+/*@font-face {
+    font-family: 'open_sansregular';
+    src: url('fuentes/OpenSans-Regular-webfont.eot');
+    src: url('fuentes/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fuentes/OpenSans-Regular-webfont.woff') format('woff'),
+         url('fuentes/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('fuentes/OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+@font-face {
+	font-family: 'puls4';
+	src:url('fuentes/puls4.eot?pyg9fy');
+	src:url('fuentes/puls4.eot?#iefixpyg9fy') format('embedded-opentype'),
+		url('fuentes/puls4.woff?pyg9fy') format('woff'),
+		url('fuentes/puls4.ttf?pyg9fy') format('truetype'),
+		url('fuentes/puls4.svg?pyg9fy#puls4') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'puls4';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-pencil:before {
+	content: "\e600";
+	margin-right: 0.5em;
+	position: absolute;
+	top:0.7em;	
+	left:0.5em;
+
+}
+.icon-pencil:before:hover{
+	
+}
+.icon-star:before {
+	content: "\e601";
+	margin: 0 0.8em 0 0;
+	color: #FFBE2C;
+	position: relative;
+	top: 0.2em;
+}
+.icon-arrow-down:before {
+	content: "\e602";
+	color: #DD4F24;
+}
+.icon-arrow-up:before {
+	content: "\e603";
+
+}
+
+
+
 body{
 	background: #EEEEEE;
-	font-family: Arial;
+	font-family: "Open Sans";
 	font-size: 16px;
+
 }
 a{
 	color:#22BCE0;
 }
 header{
 	
-	background: #344B54;
+	background: #344B75;
 	color: white;
 	overflow: hidden;
 	padding: 0.5em;
 	position:relative;
 	
 }
-header #logo img{
-	
-	width: 52px;
+header #logo {
 	border-right: 1px solid white;
-	padding-right: 0.5em;
 	margin-right: 0.5em;
+}
 
-
+header #logo img{
+	-webkit-transition:1s;
+	width: 52px;	
+	padding-right: 0.5em;
+}
+header #logo img:hover {
+    -webkit-transform:rotate(1080deg);
+	
 }
 header #avatar{
 	margin: 0.5em 0.5em 0 0;
@@ -30,31 +102,31 @@ header #avatar{
 	top:0;
 	right: 0;
 }
+
 header #avatar img{
 
 	width: 55px;
 	border-radius: 50%;
-
 }
 header figure{
 	float: left;
 	margin: 0;
-
 }
 header h1{
-	
 	font-size: 1.2em;
 	font-weight: normal;
 	margin: 0.3em 70px 0 0;
-	
 }
+
 nav ul li{
 	display: inline-block;
     margin-right: 1em; 	
+    -webkit-transition:0.3s;
 }
 nav {
-	background: #80BCA3;
-	padding: 0 0.5em;
+	/*#80BCA3*/
+	background: #14AFE0;
+	padding: 0 6em 0 0;
 	position: relative;
 	
 }
@@ -66,7 +138,11 @@ nav ul{
 nav ul li a{
 	color:white;
 	display: block;
-	padding: 0.5em 0;
+	padding: 0.5em;
+
+}
+nav ul li:hover{
+background: #344B75;
 }
 nav ul #publicar_nav{
 	
@@ -76,15 +152,43 @@ nav ul #publicar_nav{
 }
 nav ul #publicar_nav a{
 	background: #22BCE0;
-	padding: 0.8em;
+	padding: 0.8em 0.8em 0.8em 2.2em;
 	border-radius: 5px;
 	box-shadow: rgba(0,0,0,0.5) 2px 3px 20px;
 	font-style: italic;
 	text-decoration: none;
 	text-shadow: rgba(0,0,0,0.5) 2px 3px 5px;
+
+}
+
+
+nav ul #publicar_nav a:hover:before{
+	font-size: 20px;
+	
+}
+.formulario{
+	padding: 1em;
+	text-align: right;
+	display: none;
+}
+.formulario input{
+	border: 1px solid  #ccc;
+	border-radius: 5px;
+	padding: 0.2em 0.6em;
+}
+.formulario input[type="submit"]{
+background: #22BCE0;
+border-color: #22BCE0;
+box-shadow: rgba(0,0,0,0.5) 2px 3px 20px;
+font-style: italic;
+text-decoration: none;
+text-shadow: rgba(0,0,0,0.5) 2px 3px 5px;
+color: white;
 }
 footer{
+	
 	background: #22BCE0;
+
 	text-align: center;
 	color: rgba(255,255,255,0.7);
     padding: 1em;
@@ -103,14 +207,15 @@ footer p:last-child:before{
 	content: "- "
 }
 #contenido{
-	margin: 1em;
+	margin:0em;
+
 }
 #contenido .item{
 	background: white;
 	border-bottom: 3px solid #22BCE0;
 	position: relative;
-    margin:2em;
-    min-height: 156px;
+    margin:1em 1em 2em 1em;
+ /*   min-height: 156px;*/
 }
 #contenido .item .imagen_item img{
 	width: 96px;
@@ -119,7 +224,7 @@ footer p:last-child:before{
 #contenido .item .imagen_item{
 	float: left;
 	margin-right: 1em;
-	display: center;
+	/*display: center;*/
     
 }
 #contenido .item .titulo_item {
@@ -137,10 +242,11 @@ footer p:last-child:before{
 }
 #contenido .item .datos_item {
 	text-align: right;
-	margin-top: 1em;
+    margin-top: 2em;
 }
 #contenido .item .datos_item .fecha_item{
 	color: #AAA;
+	padding-right: 1em;
 }
 #contenido .item .datos_item .tag_item
 {
@@ -157,14 +263,52 @@ footer p:last-child:before{
 	
 	top: 100%;
 	left: 5%;
+	right: 5%;
 	background: white;
-	width: 90%;
+	/*width: 90%;*/
 	margin-top:3px;
 	padding: 0.2em 0.5em;
 	border-radius: 0 0 0.5em 0.5em;
+}
+#contenido .item .votacion a {
+	text-decoration: none;
+}
+aside{
+	display: none;
 }
 #contenido .item .votacion .comentarios_item ,
 #contenido .item .votacion .guardar_item
 {
 	float:right;
 }
+@media screen and (min-width: 1000px){
+	aside{
+		display: block;
+		float: right;
+		margin: 1em; 
+		width: 20%;
+	  }
+	  video{
+	  	width: 100%;
+	  }
+}
+
+@media screen and (min-width: 800px){
+	
+	#contenido{
+	overflow: hidden;	
+	
+     } 
+	#contenido .item{
+		width:45%;
+		float:left;
+
+	}
+	#contenido .item:nth-child(odd)
+		{
+			margin-right: 2%;
+		}
+}
+/*	font-size: 50px;
+}*/
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
