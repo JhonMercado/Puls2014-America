@@ -1,9 +1,15 @@
-	var $form= $('#formulario'),
-    $titulo= $('#titulo'),
-    $url= $('#url'),
-    $button= $('#mostrar-form'),
-    $lista= $('#contenido'),
-    $primerPost= $('.item').first();
+	var $form = $('#formulario'),
+      $titulo = $('#titulo'),
+         $url =  $('#url'),
+      $button = $('#mostrar-form'),
+       $lista = $('#contenido'),
+  $primerPost = $('.item').first();
+    var ls    = localStorage,
+	    ss    = sessionStorage;
+	if (ls.getItem('autosave')){
+		$titulo.val(ss.getItem('titulo'));
+		$url.val(ss.getItem('url'));
+	}
 
 
 function mostrarOcultarFormulario(){
@@ -51,4 +57,4 @@ function grabarInformacion(e){
 
 //Eventos
 $button.click( mostrarOcultarFormulario );
-$form.on('submit',  grabarInformacion /*agregarPost*/ );
+$form.on('submit',  agregarPost );
