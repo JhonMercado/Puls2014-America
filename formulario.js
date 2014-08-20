@@ -3,25 +3,52 @@
     $url= $('#url'),
     $button= $('#mostrar-form'),
     $lista= $('#contenido'),
-    $primerpost= $('.item').first();
+    $primerPost= $('.item').first();
 
 
-function mostrarFormulario(){
+function mostrarOcultarFormulario(){
+	
    $form.slideToggle();
-    return false;
-}
-function agregarPost(){
+   $lista.slideToggle();
+ }
+function agregarPost(e){
+	    e.preventDefault();
 	    var titulo=$titulo.val(),
 	    url=$url.val(),
-	    clone=$primerpost.clone();
+	    clone=$primerPost.clone();
+	   
+	    
 	    clone.find('.titulo_item a')
 	    .text(titulo)
 	    .attr('href', url)
-	    .hide();
-	    $lista.prepend(clone);
-	    clone.slideDown();
-	    //return false;
+	    
+	    clone.hide()
+	    
+	    $lista.prepend(clone);// si usamos append se añade al final
+	    mostrarOcultarFormulario();
+	    $titulo.val("");
+	    $url.val("");
+	    //clone.slideDown()
+	    clone.fadeIn()
+	    
 	    }
+function grabarInformacion(e){
+	e.preventDefault();
+	var titulo = $titulo.val(),
+	     url   = $url.val(),
+	     ls    = localStorage,
+	     ss    = sessionStorage;
+
+	     ls.setItem('titulo',titulo);
+	     ls.setItem('url',url);
+
+         ss.setItem('titulo',titulo);
+	     ss.setItem('url',url);
+	     mostrarOcultarFormulario();
+	     $titulo.val("");
+	    $url.val("");
+}	    
+
 //Eventos
-$button.click( mostrarFormulario );
-$form.on('submit', agregarPost );
+$button.click( mostrarOcultarFormulario );
+$form.on('submit',  grabarInformacion /*agregarPost*/ );
