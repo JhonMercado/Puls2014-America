@@ -6,11 +6,15 @@
   $primerPost = $('.item').first();
     var ls    = localStorage,
 	    ss    = sessionStorage;
+	
 	if (ls.getItem('autosave')){
 		$titulo.val(ss.getItem('titulo'));
 		$url.val(ss.getItem('url'));
 	}
-
+var id= setInterval(function(){
+	ss.setItem('titulo',$titulo.val());
+	ss.setItem('url',$url.val())
+},1000)
 
 function mostrarOcultarFormulario(){
 	
@@ -36,7 +40,9 @@ function agregarPost(e){
 	    $url.val("");
 	    //clone.slideDown()
 	    clone.fadeIn()
-	    
+	    //
+
+
 	    }
 function grabarInformacion(e){
 	e.preventDefault();

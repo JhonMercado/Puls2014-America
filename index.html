@@ -42,6 +42,8 @@
       <input type="submit" value="agregar">
    </form>
    <aside>
+        <div id="geo"></div>
+
        <video width="320" height="240" controls autoplay>
         <source src="lecturas.mp4" type="video/mp4">
          <source src="lecturas.ogg" type="video/ogg">
@@ -232,14 +234,43 @@
     </p>
     <p>mejorando.la 2014</p>
   </footer>
-     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="formulario.js"></script>   
   <script>
-     window.onload=function(){
-       console.log('Ya se disparo el evento onLoad');
-     }
      $(function(){
-         console.log('Ya se disparo el evento DOMContentLoaded');
+      
+              var geo = navigator.geolocation;
+              var options = {
+                  enableHighAccuracy: true,
+                  timeout: 10000,
+                  maximumAge: 0
+                };
+
+              function geo_exito(pos){
+                var crd = pos.coords;
+
+               console.log('Your current position is:');
+               console.log('Latitude : ' + crd.latitude);
+               console.log('Longitude: ' + crd.longitude);
+               console.log('More or less ' + crd.accuracy + ' meters.')
+
+               /* var lat=position.coords.latitude;
+                var lon= position.coords.longitude;
+              
+                var mapa = new Image();
+                mapa.src="http://maps.googleapis.com/maps/api/staticmap?center="+lat+","+lon+"&zoom=12&size=250x250&sensor=false";
+            
+                 $('#geo').append(mapa);*/
+
+            }
+
+            function geo_error(err){
+             console.warn('ERROR(' + err.code + '): ' + err.message); 
+            }
+            
+           geo.getCurrentPosition(geo_exito, geo_error,options);
+  
+
      });
   </script>
       
